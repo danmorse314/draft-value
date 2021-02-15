@@ -10,4 +10,4 @@ For example, `get_team_table("SEA", 2010)` produces the table below
 
 ![seahawks example](https://github.com/danmorse314/draft-value/blob/main/seahawks%20pcjs%20draft%20value.png)
 
-Use the `get_team_plot(team)` function to see a line graph depicting the value over average over time for a specific team
+Use the `get_team_plot()` function to see a line graph depicting the value over average over time for a specific team
