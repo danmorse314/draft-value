@@ -4,9 +4,9 @@
 
 This code takes data gathered from [Pro Football Reference](https://www.pro-football-reference.com/), cleans it, and predicts the AV of every NFL pick back to 1989.
 
-Use the function `r get_team_table(team, year)` to get every draft class for a specific team, from the year provided up until the most recent season.
+Use the function `get_team_table()` to get every draft class for a specific team, from the year provided up until the most recent season.
 
-For example, `r get_team_table("SEA", 2010)` produces the table below
+For example, `get_team_table("SEA", 2010)` produces the table below
 
 ![seahawks example](https://github.com/danmorse314/draft-value/blob/main/seahawks%20pcjs%20draft%20value.png)
 
