@@ -15,12 +15,17 @@ glimpse(pfr_data_raw)
 
 range(pfr_data_raw$draft_year)
 
-draft_new <- purrr::map_dfr(
-  .x = 2021:2024,
-  ~get_draft_class(.x)
-)
+draft_raw <- NULL
+for(i in 1996:2024){
+  draft_i <- get_draft_class(i)
+  
+  draft_raw <- bind_rows(draft_raw, draft_i)
+  
+  Sys.sleep(10)
+  
+}
 
-draft_raw <- bind_rows(pfr_data_raw, draft_new) |>
+draft_raw <- bind_rows(pfr_data_raw, draft_raw) |>
   arrange(-draft_year, pick)
 
-draft_new |> write_csv("pfr_draft_classes.csv")
+draft_raw |> write_csv("pfr_draft_classes.csv")

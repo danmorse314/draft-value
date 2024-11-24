@@ -1,5 +1,7 @@
 get_draft_class <- function(season = as.integer(format(Sys.Date(), "%Y"))){
   
+  message(paste("\npulling draft data for",season,"season..."))
+  
   # names for final df
   df_names <- c(
     "round","pick","team","player","pos_pfr","draft_age","last_season",
@@ -38,6 +40,13 @@ get_draft_class <- function(season = as.integer(format(Sys.Date(), "%Y"))){
   colnames(draft) <- df_names
   
   draft <- utils::type.convert(draft, as.is = "TRUE")
+  
+  # sacks weren't a thing before 95 I guess
+  if(is.character(draft$sacks[1])){
+    draft <- draft |>
+      dplyr::select(-college) |>
+      dplyr::rename(college = sacks)
+  }
   
   return(draft)
 }
